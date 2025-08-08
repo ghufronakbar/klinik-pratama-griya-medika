@@ -91,7 +91,7 @@ export default function HoursLocation() {
           <div className="bg-gray-100 rounded-2xl p-4 text-center">
             <div className="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.774736224098!2d110.26884707517381!3d-7.490106592522029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a890e745101bb%3A0xd45904485f53c14d!2sKLINIK%20PRATAMA%20GRIYA%20MEDIKA!5e0!3m2!1sid!2sid!4v1754650741222!5m2!1sid!2sid"
+                src={clinicData.contact.mapsUrl}
                 width="600"
                 height="450"
                 style={{ border: "0" }}

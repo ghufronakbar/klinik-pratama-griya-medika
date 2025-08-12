@@ -19,6 +19,7 @@ export default function Header() {
   const navItems = [
     { href: '#layanan', label: 'Layanan' },
     { href: '#keunggulan', label: 'Keunggulan' },
+    { href: '/artikel', label: 'Artikel', isExternal: true },
     { href: '#jam-lokasi', label: 'Jam & Lokasi' },
     { href: '#kontak', label: 'Kontak' }
   ];
@@ -43,7 +44,17 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a
+              {item.isExternal ? (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-gray-700 hover:text-emerald-600 font-medium transition-colors duration-200"
+                >
+                  {item.label}
+                </Link>
+              )}
+              ) : (
+                <a
                 key={item.href}
                 href={item.href}
                 className="text-gray-700 hover:text-emerald-600 font-medium transition-colors duration-200"
@@ -72,7 +83,17 @@ export default function Header() {
         {isMenuOpen && (
           <nav className="md:hidden py-4 border-t border-gray-200">
             {navItems.map((item) => (
-              <a
+              {item.isExternal ? (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="block py-2 text-gray-700 hover:text-emerald-600 font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a
                 key={item.href}
                 href={item.href}
                 className="block py-2 text-gray-700 hover:text-emerald-600 font-medium"
@@ -86,6 +107,7 @@ export default function Header() {
               >
                 {item.label}
               </a>
+              )}
             ))}
           </nav>
         )}
